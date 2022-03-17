@@ -1,15 +1,19 @@
 extends layout
 
 block content
-	h1 Login
-	p This is where you login after registering.
-	hr
-	form(action="/users/login", method='POST')
-		div
-			label(for="email") Email:
-			input(type="email", id="email", name="email", required=true)
-		div
-			label(for="password") Password:
-			input(type="password", id="password", name="password", required=true)
-		div
-			button(type="submit") Login
+	div.bg-blue.register-login-container-flex
+		div.register-login-container-flex.text-dark.bg-smokeWhite.rounded.p-10px
+			h1 Login
+			p This is where you login after registering.
+			hr
+			form(action="/users/login", method='POST')
+				div
+					label(for="email") Email:
+					br
+					input(type="email", id="email", name="email", required=true)
+				div
+					label(for="password") Password:
+					br
+					input(type="password", id="password", name="password", required=true)
+				div.m-10px
+					button.btn.btn-success(type="submit") Login
