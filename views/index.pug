@@ -1,25 +1,31 @@
 extends layout
 
 block content
-	h1 Home
-	p This is where all main content will be displayed. 
-	hr
-	h2 Browse through our collection of <strong><u>#{totalbooksCount}</u></strong> books.
-	//- ul
-		//- each book, i in books
-			//- li
-			//- 	a(href="/books/"+book.id)= book.title
-	div(class="search-wrapper")
-		label(for="search") Search Books
-		| 
-		input(type="search", id="search", data-search)
-	div(class="user-cards", data-book-cards-container)
-	template(data-book-template)
-		div(class="card")
-			div(class="header", data-header)
-			div(class="body", data-body)
-			div(class="link", data-link)
-	script(src='/javascripts/search.js')
+	div.body_container.bg-dark-blue
+		div
+		div.text-light
+			h1 Home
+			p This is where all main content will be displayed. 
+	div.body_container.bg-blue
+		div
+		div
+			hr
+			h2.text-light Browse through our collection of <strong><u>#{totalbooksCount}</u></strong> books.
+			//- ul
+				//- each book, i in books
+					//- li
+					//- 	a(href="/books/"+book.id)= book.title
+			div(class="search-wrapper")
+				label.text-light(for="search") Search Books
+				| 
+				input(type="search", id="search", data-search)
+			div(class="user-cards", data-book-cards-container)
+			template(data-book-template)
+				div(class="card")
+					div(class="card-title", data-header)
+					div(class="body", data-body)
+					div(class="link ", data-link)
+			script(src='/javascripts/search.js')
 
 		
 		

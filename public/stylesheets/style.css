@@ -1,25 +1,25 @@
-body {
-	padding: 50px;
-	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  }
-  
-  a {
-	color: #00B7FF;
-  }  
-  
-  div {
-	  padding: 2px;
-  }
-  
-  h2 {
-	  color: #00B7FF;
-  }
+ .body_container{
+	display: grid;
+	grid-auto-rows: 1fr; 
+	grid-template-columns: 10% 1fr 10%; 
+	gap: 0px 0px; 
+ }
 
-  h3 {
-	  color: #06ad00
+ .book-container {
+	display: grid; 
+	grid-auto-rows: 1fr; 
+	grid-template-columns: 10% 60% 30%; 
+	gap: 0px 0px; 
   }
-  
-  header {
+ 
+.bg-dark-blue{
+	background: #1E2749;
+}
+.bg-blue{
+	background: #273469;
+}
+
+ header {
 	  background-color: #000472;
 	  color: #ffffff;
 	  text-align: left
