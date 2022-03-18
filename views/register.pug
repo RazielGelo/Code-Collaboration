@@ -3,11 +3,10 @@ extends layout
 block content
 	div.body_container.bg-dark-blue
 		div
-		div.register-login-container.text-white
+		div.register-login-container.text-white.m-10px
 			h1.text-center Register
 			p This is where you register. 
 			p Please note that once Username has been set it cannot be changed. 
-			hr
 	div.bg-blue.register-login-container-flex
 		div.register-login-container-flex.text-dark.bg-smokeWhite.rounded.p-10px
 			form(action="/users/register", method='POST')
