@@ -17,43 +17,53 @@ block script
 		})
 
 block content
-	h1= book.title
-	h5 Written by #{author}
-	label Genre: #{genre.genre}
-	p Description: #{book.description}
-	hr
-	h3 Page Details: 
-	div
-		label Chapter Name:
-		input(type="text", name='chapterName', value=`${page.chapterName}`, disabled)
-	div
-		label Page Number:
-		input(type="number", name='pageNumber', value=`${page.pageNumber}`, disabled)
-	div
-		label Content:
-		textarea#body=page.body
-	if user 	
-		if user.userName == book.authorName
-			each hist, i in history
-				form(action=`/books/page/${page.id}`, method='POST')
-					div
-						input(type="text", name="chapterName1", style="display:none;", value=`${page.chapterName}`)
-					div
-						input(type="number", name="pageNumber1", style="display:none;", value=`${page.pageNumber}`)
-					div
-						label Your content update:
-						textarea.currBody(name='currBody')=hist.currBody
-					div
-						input(type="number", name="updater", style="display:none;", value=`${hist.userID}`)
-					div
-						button#Approve(type="submit") Approve
-			a(href=`/books/page/modify/${page.id}`) Edit Page
-			| 
-			a(href='#', id="delete", data-id=`${page.id}`, data-bookid=`${book.id}`) Delete
-			| 
-			a(href=`/books/${book.id}`) Cancel
+	div(class="body_content")
+		div(class="banner_edit")
+			h1= book.title
+			div(class="textedit")
+				h5 Written by #{author}
+				label Genre: #{genre.genre}
+				p Description: #{book.description}
+		
+		div(class="modify_container")
+			h3 Page Details: 
+			div(class="label_container")
+				label Chapter Name:
+				input(type="text", name='chapterName', value=`${page.chapterName}`, disabled, class="title_input")
+			
+				label Page Number:
+				input(type="number", name='pageNumber', value=`${page.pageNumber}`, disabled, class="title_input")
+			
+				label Content:
+				textarea#body=page.body
+		if user 	
+			if user.userName == book.authorName
+				each hist, i in history
+					form(action=`/books/page/${page.id}`, method='POST')
+						div(class="modify_container")
+							div(class="label_container")
+								input(type="text", name="chapterName1", style="display:none;", value=`${page.chapterName}`)
+							
+								input(type="number", name="pageNumber1", style="display:none;", value=`${page.pageNumber}`)
+							
+								label Your content update:
+								textarea.currBody(name='currBody')=hist.currBody
+							
+								input(type="number", name="updater", style="display:none;", value=`${hist.userID}`)
+								
+								button#Approve(type="submit", class="approve_btn") Approve
+				div(class="banner_edit")
+					p More Option
+					a(href=`/books/page/modify/${page.id}`) 
+						button(type="button", class="modify_btn") Edit Page
+
+					a(href='#', id="delete", data-id=`${page.id}`, data-bookid=`${book.id}`) 
+						button(type="button", class="modify_btn") Delete
+						
+					a(href=`/books/${book.id}`)
+						button(type="button", class="modify_btn") Cancel
+			else
+				a(href=`/books/${book.id}`) Back
 		else
 			a(href=`/books/${book.id}`) Back
-	else
-		a(href=`/books/${book.id}`) Back
-	script(src='/javascripts/delete_page.js') 
+		script(src='/javascripts/delete_page.js') 

@@ -1,15 +1,15 @@
-body {
+/* body {
 	padding: 50px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  }
+  } */
   
-  a {
+  /* a {
 	color: #00B7FF;
-  }  
+  }   */
   
-  div {
+  /* div {
 	  padding: 2px;
-  }
+  } */
   
   h2 {
 	  color: #00B7FF;
@@ -19,7 +19,7 @@ body {
 	  color: #06ad00
   }
   
-  header {
+  /* header {
 	  background-color: #000472;
 	  color: #ffffff;
 	  text-align: left
@@ -48,7 +48,7 @@ body {
 	  color: #ffffff;
 	  text-align: center;
 	  clear: both;
-  }
+  } */
   
   .alert-error{
 	color: #a94442;
