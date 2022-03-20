@@ -4,7 +4,11 @@ block content
 	div.book-container.bg-blue
 		div
 		div.text-light 
-			h1 Users Page
+			div
+				h1 Users Page
+				block welcomer
+					if user
+						h3 Welcome #{user.firstName}!
 			p This is where all the information is displayed after you login.
 			hr
 			h3 Profile: 
