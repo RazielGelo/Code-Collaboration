@@ -2,38 +2,37 @@ extends layout
 
 block content
 	div.body_container.bg-dark-blue
-		div
-		div.register-login-container.text-white.m-10px
-			h1.text-center Register
 	div.bg-blue.register-login-container-flex.padding-top-100px
 		div.register-login-container-flex.text-dark.bg-smokeWhite.rounded.p-10px
 			form(action="/users/register", method='POST')
 				div
-					label(for="userName") Username:
+					h1.text-center Register
+				div
+					label(for="userName") Username
 					br
 					input.rounded(type="text", id="userName", name="userName", value=`${(!userName) ? '' : userName}`)
 				div
-					label(for="firstName") FirstName:
+					label(for="firstName") FirstName
 					br
 					input.rounded(type="text", id="firstName", name="firstName", value=`${(!firstName) ? '' : firstName}`)
 				div
-					label(for="lastName") LastName:
+					label(for="lastName") LastName
 					br
 					input.rounded(type="text", id="lastName", name="lastName", value=`${(!lastName) ? '' : lastName}`)
 				div
-					label(for="birthday") Birthday:
+					label(for="birthday") Birthday
 					br
 					input.rounded(type="Date", id="birthday", name="birthday", value=`${(!birthday) ? '' : birthday.toISOString().substring(0, 10)}`)
 				div
-					label(for="email") Email:
+					label(for="email") Email
 					br
 					input.rounded(type="email", id="email", name="email", value=`${(!email) ? '' : email}`)
 				div
-					label(for="password") Password:
+					label(for="password") Password
 					br
 					input.rounded(type="password", id="password", name="password")
 				div
-					label(for="password2") Confirm Password:
+					label(for="password2") Confirm Password
 					br
 					input.rounded(type="password", id="password2", name="password2")
 				div.m-10px
