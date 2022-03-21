@@ -23,8 +23,29 @@ nav{
  .book-container {
 	display: grid; 
 	grid-auto-rows: 1fr; 
-	grid-template-columns: 10% 60% 30%; 
-	gap: 0px 0px; 
+	grid-template-columns: 10% 1fr 10%; 
+	gap: 0px 0px;
+  }
+
+  @media only screen and (max-width: 1000px) {
+	.book-container {
+		grid-template-columns: 10% 1fr 10%; 
+	}
+  }
+
+  .description-and-chapeter{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+
+  @media only screen and (max-width: 1000px) {
+	.description-and-chapeter {
+		flex-direction: column;
+	}
   }
 
   .p-10px{

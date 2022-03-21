@@ -14,25 +14,25 @@ block content
 			h3 Profile: 
 			//- form(action="/users/profile", method='GET')
 			div
-				label(for="userName ") Username:
+				label(for="userName ") Username
 				br
-				input.roundedbg-white.rounded(type="text", id="userName", name="userName", value=`${user.userName}`, disabled)
+				input.roundedbg-white.bg-light.rounded(type="text", id="userName", name="userName", value=`${user.userName}`, disabled)
 			div
-				label(for="email") Email:
+				label(for="email") Email
 				br
-				input.roundedbg-white.rounded(type="email", id="email", name="email", value=`${user.email}`, disabled)
+				input.roundedbg-white.bg-light.rounded(type="email", id="email", name="email", value=`${user.email}`, disabled)
 			div
-				label(for="firstName") FirstName:
+				label(for="firstName") FirstName
 				br
-				input.roundedbg-white.rounded(type="text", id="firstName", name="firstName", value=`${user.firstName}`, disabled)
+				input.roundedbg-white.bg-light.rounded(type="text", id="firstName", name="firstName", value=`${user.firstName}`, disabled)
 			div
-				label(for="lastName") LastName:
+				label(for="lastName") LastName
 				br
-				input.roundedbg-white.rounded(type="text", id="lastName", name="lastName", value=`${user.lastName}`, disabled)
+				input.roundedbg-white.bg-light.rounded(type="text", id="lastName", name="lastName", value=`${user.lastName}`, disabled)
 			div
-				label(for="birthday") Birthday:
+				label(for="birthday") Birthday
 				br
-				input.roundedbg-white.rounded(type="date", id="birthday", name="birthday", value=`${user.birthday.toISOString().substring(0, 10)}`, disabled)
+				input.roundedbg-white.bg-light.rounded(type="date", id="birthday", name="birthday", value=`${user.birthday.toISOString().substring(0, 10)}`, disabled)
 			
 			div
 				a.text-white(href='/books/add') Add Book
