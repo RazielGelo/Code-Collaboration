@@ -26,16 +26,19 @@ block content
 			h5 Written by #{author}
 			label Genre: #{genre.genre}
 			p Description: #{book.description}
-			div.bg-dark-blue
-				h3 Page Details: 
+			div.bg-dark-blue.p-2
+				h3 Page Details
 				div
-					label Chapter Name:
+					label Chapter Name
+					br
 					input(type="text", name='chapterName', value=`${page.chapterName}`, disabled)
 				div
-					label Page Number:
+					label Page Number
+					br
 					input(type="number", name='pageNumber', value=`${page.pageNumber}`, disabled)
 				div
-					label Current page update:
+					label Current page update
+					br
 					textarea#body=page.body
 				if user
 					if user.userName == book.authorName
@@ -62,5 +65,5 @@ block content
 					//- else
 					//- 	a(href=`/books/${book.id}`) Back
 				else
-					a(href=`/books/${book.id}`) Back
+					a(class="btn btn-light m-2" href=`/books/${book.id}`) Back
 				script(src='/javascripts/delete_page.js') 
