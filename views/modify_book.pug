@@ -8,25 +8,25 @@ block content
 		
 		div(class="modify_container")
 			form(action=`/books/modify/${book.id}`, method='POST')
-				
-				label(for="title") Title: 
-				input(type="text", id="text", name="title", class="title_input")
-				
-				label Genre: 
-				select(name='genre', class="genre_select")
-					each genre in distinctGenre
-						option(selected) #{genre.genre}
-				
-				label Description: 
-				textarea(name='description', class="content_input")
-
-				div(class="button_container")
-					button(type="submit", class="button_edit") Update
-					| 
-					//-a(href=`/books/${book.id}`, class="button_link") Cancel
+				div(class="label_container")
+					label(for="title") Title: 
+					input(type="text", id="text", name="title", class="title_input")
 					
-					a(href=`/books/${book.id}`)
-						button(type="button", class="button_edit") Cancel
+					label Genre: 
+					select(name='genre', class="genre_select")
+						each genre in distinctGenre
+							option(selected) #{genre.genre}
+					
+					label Description: 
+					textarea(name='description', class="content_input")
+
+					div(class="button_container")
+						button(type="submit", class="button_edit") Update
+						| 
+						//-a(href=`/books/${book.id}`, class="button_link") Cancel
+						
+						a(href=`/books/${book.id}`)
+							button(type="button", class="button_edit") Cancel
 
 					
 					
