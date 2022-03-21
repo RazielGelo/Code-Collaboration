@@ -19,6 +19,9 @@ const passport = require('passport');
 app.use(express.json()) // Setup server to accept JSON
 app.use(express.urlencoded({ extended: false })) // Setup server to accept form data
 
+/* ================BOOTSTRAP==================== */
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+
 /* ================PASSPORT RELATED==================== */
 
 // Express Session Middleware

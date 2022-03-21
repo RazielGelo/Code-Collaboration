@@ -14,7 +14,7 @@ router.get('/register', async (req, res) => {
 })
 
 // Register Process
-router.post('/register', 
+router.post('/register',
 
 	body('userName', "Username is required").notEmpty(),
 	body('userName', 'Username should at least be 2 characters long').isLength(2),
@@ -25,9 +25,13 @@ router.post('/register',
 	body('birthday', 'Birthday is required').notEmpty(),
 	body('birthday').custom((value, { req }) => {
 		value = Date.now()
+		past = new Date('December 31, 1899 00:00:00')
 		if (new Date(req.body.birthday) > value) {
 			throw new Error('Birthday should be less than date today')
 
+		}
+		if (new Date(req.body.birthday) < past) {
+			throw new Error("Birthday should be at least in the 1900's")
 		}
 		return true;
 	}),
@@ -43,14 +47,26 @@ router.post('/register',
 		return true;
 	}), checkExisting, async (req, res) => {
 		let errors = validationResult(req)
+		const userName = req.body.userName
+		const firstName = req.body.firstName
+		const lastName = req.body.lastName
+		const birthday = new Date(req.body.birthday)
+		const email = req.body.email.toLowerCase()
 
 		if (!errors.isEmpty()) {
 			res.render('register.pug', {
-				errors: errors.array()
+				errors: errors.array(),
+				userName: userName,
+				firstName: firstName,
+				lastName: lastName,
+				birthday: birthday,
+				email: email,
+
 			})
 		}
 		else {
 			const hashedPassword = await bcrypt.hash(req.body.password, 10)
+
 			// This code can be refined
 			try {
 				if (res.username != null && res.email != null) {
@@ -68,11 +84,11 @@ router.post('/register',
 				else {
 					const newUser = await prisma.user.create({
 						data: {
-							userName: req.body.userName,
-							firstName: req.body.firstName,
-							lastName: req.body.lastName,
-							birthday: new Date(req.body.birthday),
-							email: req.body.email.toLowerCase(),
+							userName: userName,
+							firstName: firstName,
+							lastName: lastName,
+							birthday: birthday,
+							email: email,
 							password: hashedPassword
 						}
 					})
@@ -104,7 +120,7 @@ router.get('/profile', ensureAuthenticated, async (req, res) => {
 		where: {
 			id: req.user.id
 		},
-		include:{
+		include: {
 			_count: {
 				select: { books: true }
 			}
@@ -127,9 +143,13 @@ router.post('/modify', ensureAuthenticated,
 	body('birthday', 'Birthday is required').notEmpty(),
 	body('birthday').custom((value, { req }) => {
 		value = Date.now()
+		past = new Date('December 31, 1899 00:00:00')
 		if (new Date(req.body.birthday) > value) {
 			throw new Error('Birthday should be less than date today')
 
+		}
+		if (new Date(req.body.birthday) < past) {
+			throw new Error("Birthday should be at least in the 1900's")
 		}
 		return true;
 	}),

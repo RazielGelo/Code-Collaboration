@@ -7,72 +7,63 @@ block script
 			selector:  '#body',
 			menubar: false,
 			statusbar: false,
+			toolbar: false,
 			readonly: 1
 		})
 			tinymce.init({
 			selector:  '.currBody',
 			menubar: false,
 			statusbar: false,
+			toolbar: false,
 			readonly: 1
 		})
 
 block content
-	div(class="body_content")
-		div(class="banner_edit")
+	div.book-container.bg-blue.text-light
+		div(class="mt-auto")
+		div(class="d-flex flex-column bd-highlight")
 			h1= book.title
-			div(class="textedit")
-				h5 Written by #{author}
-				label Genre: #{genre.genre}
-				p Description: #{book.description}
-		
-		div(class="modify_container")
-			h3 Page Details: 
-			div(class="label_container")
-				label Chapter Name:
-				input(type="text", name='chapterName', value=`${page.chapterName}`, disabled, class="title_input")
-			
-				label Page Number:
-				input(type="number", name='pageNumber', value=`${page.pageNumber}`, disabled, class="title_input")
-			
-				label Content:
-				textarea#body=page.body
-		if user 	
-			if user.userName == book.authorName
-				each hist, i in history
-					form(action=`/books/page/${page.id}`, method='POST')
-						div(class="modify_container")
-							div(class="label_container")
-								input(type="text", name="chapterName1", style="display:none;", value=`${page.chapterName}`)
-							
-								input(type="number", name="pageNumber1", style="display:none;", value=`${page.pageNumber}`)
-							
-								label Your content update:
-								textarea.currBody(name='currBody')=hist.currBody
-							
-								input(type="number", name="updater", style="display:none;", value=`${hist.userID}`)
-								
-								button#Approve(type="submit", class="approve_btn") Approve
-				div(class="banner_edit")
-					p More Option
-					a(href=`/books/page/modify/${page.id}`) 
-						button(type="button", class="modify_btn") Edit Page
-
-					a(href='#', id="delete", data-id=`${page.id}`, data-bookid=`${book.id}`) 
-						button(type="button", class="modify_btn") Delete
-						
-					a(href=`/books/${book.id}`)
-						button(type="button", class="modify_btn") Cancel
-			else
-				a(href=`/books/${book.id}`) Back
-		else
-			a(href=`/books/${book.id}`) Back
-		script(src='/javascripts/delete_page.js') 
-
-	//- <aside>
-	//- h3 Book Chapter
-	//- div
-	//- 	each pg, i in pages
-	//- 		if pg.id != page.id
-	//- 			div
-	//- 				a(href="/books/page/"+pg.id)= pg.chapterName
-	//- </aside>
+			h5 Written by #{author}
+			label Genre: #{genre.genre}
+			p Description: #{book.description}
+			div.bg-dark-blue.p-2
+				h3 Page Details
+				div
+					label Chapter Name
+					br
+					input(type="text", name='chapterName', value=`${page.chapterName}`, disabled)
+				div
+					label Page Number
+					br
+					input(type="number", name='pageNumber', value=`${page.pageNumber}`, disabled)
+				div
+					label Current page update
+					br
+					textarea#body=page.body
+				if user
+					if user.userName == book.authorName
+						each hist, i in history
+							form(action=`/books/page/${page.id}`, method='POST')
+								div
+									input(type="text", name="chapterName1", style="display:none;", value=`${page.chapterName}`)
+								div
+									input(type="number", name="pageNumber1", style="display:none;", value=`${page.pageNumber}`)
+								div
+									each user1,  i in allUser
+										if hist.userID === user1.id
+											label Page update by: #{user1.userName}
+											textarea.currBody(name='currBody')=hist.currBody
+								div
+									input(type="number", name="updater", style="display:none;", value=`${hist.userID}`)
+								div
+									button#Approve(type="submit") Approve
+					a(class="btn btn-secondary m-2" href=`/books/page/modify/${page.id}`) Edit Page
+					| 
+					a(class="btn btn-danger m-2" href='#', id="delete", data-id=`${page.id}`, data-bookid=`${book.id}`) Delete
+					| 
+					a(class="btn btn-warning m-2" href=`/books/${book.id}`) Cancel
+					//- else
+					//- 	a(href=`/books/${book.id}`) Back
+				else
+					a(class="btn btn-light m-2" href=`/books/${book.id}`) Back
+				script(src='/javascripts/delete_page.js') 
