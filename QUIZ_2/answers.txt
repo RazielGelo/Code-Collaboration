@@ -1,0 +1,15 @@
+1. ORM stands for Object Relational Mapping and it lets you manipulate data from a database using object-oriented programming. You will be able to interact directly with an object which is easier to handle than for example T-SQL
+2. Server Side Rendering the server will convert HTML files that will be usable in the browser, for example, your visiting a page then you will request to the server and then the server will send you back a fully rendered HTML and displays it on your screen and this will occur also when you will visit another page.
+3. OAuth is for authorization, this will help the user be authenticated safely without sharing their password, this also uses tokens to prove the user's identity.
+4. Server Side Rendering is a good idea if you are going to change frequently the page like for example
+(
+facebook - they need dynamically change the pages depending on for example the posts of your friends, 
+Instagram - same as Facebook, they need to change it dynamically, 
+twitter - same 
+) This website uses server-side rendering heavily because they need it to be dynamic
+5. Static Rendering is a good idea if you will not change its content for a long time for example 
+(
+about page - this page will not be updated anytime soon, 
+contact page - this page will not be updated unless you change your contact information, 
+or blog - this page will unlikely to be updated because this is already done in the past maybe it will be change if you forgot to add something that you forgot
+) these pages/websites need not be updated often.
