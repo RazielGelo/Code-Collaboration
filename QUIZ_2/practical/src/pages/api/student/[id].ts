@@ -57,19 +57,21 @@ export default async function getStudent(req: NextApiRequest, res:NextApiRespons
             let studentFound = students.filter((student) => 
                 student.studentID.substring(1) === req.query.id
             )
+            
+            console.log(studentFound[0])
 
+            
             let newUpdate = {
                 $set: {
-                        studentID: req.body.studentID,
-                        firstName: req.body.firstName,
-                        lastName: req.body.lastName,
-                        dob: req.body.dob,
-                        age: req.body.age,
-                        email: req.body.email
+                    ...studentFound[0],
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName
+
                 }
             }
+
             // updates the database
-            client.db().collection('students').updateOne({_id: "6327be27d8c5954ceb1d5e85" }, newUpdate, function (err, result) { console.log(err, result); });
+            await client.db().collection('students').updateOne({studentID: `#${req.query.id}`}, newUpdate, function (err, result) { console.log(err, result); });
 
             
             // // closes the database
@@ -78,7 +80,7 @@ export default async function getStudent(req: NextApiRequest, res:NextApiRespons
 
             res.status(200).json(
                     {
-                        data:studentFound,
+                        data:newUpdate[0],
                         code: 200
                     }
                 )
