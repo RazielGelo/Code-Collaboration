@@ -80,7 +80,7 @@ export default async function getStudent(req: NextApiRequest, res:NextApiRespons
 
             res.status(200).json(
                     {
-                        data:newUpdate[0],
+                        data:req.body.id,
                         code: 200
                     }
                 )
