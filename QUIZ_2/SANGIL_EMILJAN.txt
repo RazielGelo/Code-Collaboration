@@ -1,6 +1,6 @@
 QUIZ DATE: 18-09-2022
 TEAM MEMBERS: SANGIL EMIL JAN>[000451738]
 GIT LINK: https://github.com/emilsangil/Quizzes/tree/main/QUIZ_2
-VIDEO LINK: <VIDEO LINK>
+VIDEO LINK: https://vimeo.com/manage/videos/751072779/privacy
 ANSWER DOCUMENT: https://github.com/emilsangil/Quizzes/blob/main/QUIZ_2/answers.txt
 ADDITIONAL INFORMATION: <ADDITIONAL INFORMATION>
