@@ -3,3 +3,5 @@ References:
 https://docs.strapi.io/developer-docs/latest/developer-resources/content-api/integrations/next-js.html#post-request-your-collection-type
 https://betterprogramming.pub/upload-files-to-next-js-with-api-routes-839ce9f28430
 https://github.com/nextauthjs/next-auth/issues/720
+https://next-auth.js.org/getting-started/upgrade-v4
+https://www.bezkoder.com/mongoose-one-to-many-relationship/
