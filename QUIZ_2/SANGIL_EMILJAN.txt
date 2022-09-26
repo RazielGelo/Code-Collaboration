@@ -3,4 +3,4 @@ TEAM MEMBERS: SANGIL EMIL JAN [000451738]
 GIT LINK: https://github.com/emilsangil/Quizzes/tree/main/QUIZ_2
 VIDEO LINK: https://vimeo.com/manage/videos/751072779/privacy
 ANSWER DOCUMENT: https://github.com/emilsangil/Quizzes/blob/main/QUIZ_2/answers.txt
-ADDITIONAL INFORMATION: Please check the readme file in the practical folder in order to run the code
+ADDITIONAL INFORMATION: Please check the readme file in the practical folder in order to run the code and also please check the PUT maybe I made it work
