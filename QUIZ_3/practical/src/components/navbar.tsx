@@ -8,13 +8,13 @@ export default function Navbar() {
     return(
         <div className={styles.container}>
             <div>
-                <Image src="/movielogo.png" alt="logo" width={50} height={100}/>
+                <Image src="/movielogo.png" alt="logo" width={138} height={155}/>
             </div>
             <div className={styles.link}>
                 <Link href={"/movieupload"}><a>Movies</a></Link>
             </div>
             <div>
-                <Link href={""}>TV SHOWS</Link>
+                <Link href={"/"}>TV SHOWS</Link>
             </div>
                 <div>
                     <Link href={"/login"}>LOGIN</Link>

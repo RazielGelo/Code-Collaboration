@@ -2,6 +2,7 @@ import {useSession, signIn, signOut} from 'next-auth/react';
 import React, {useState} from 'react';
 import {instance} from '@/resources/axiosInstance';
 import styles from '@/styles/Signup.module.sass'
+import Image from 'next/image'
 
 export default function SignIn () {
     const [username, setUsername] = useState('');
@@ -35,15 +36,24 @@ export default function SignIn () {
 
     return(
         <div>
-            <div>
-                <h1>SIGNUP</h1>
+            <div className={styles.container}>
                 <div>
-                    <input type='text' placeholder='USER NAME' value={username} onChange={handleUsernameChange} className={styles.input} />
+                    <div>
+                        <Image src="/movieside.png" alt="logo" width="650" height="850"></Image>
+                    </div>
                 </div>
                 <div>
-                    <input type='password' placeholder='PASSWORD' value={password} onChange={handlePasswordChange} className={styles.input}/>
+                    <div className={styles.title}>
+                        <h1>SIGNUP</h1>
+                    </div>
+                    <div>
+                        <input type='text' placeholder='USER NAME' value={username} onChange={handleUsernameChange} className={styles.input} />
+                    </div>
+                    <div>
+                        <input type='password' placeholder='PASSWORD' value={password} onChange={handlePasswordChange} className={styles.input}/>
+                    </div>
+                    <button onClick={registerUser}>SIGNUP</button>
                 </div>
-                <button onClick={registerUser}>SIGNUP</button>
             </div>
         </div>
     )

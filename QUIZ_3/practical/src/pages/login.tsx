@@ -1,20 +1,32 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
+import Image from 'next/image'
+import styles from '@/styles/Login.module.sass'
 
 
 export default function Login() {
     const { data: session } = useSession();
     if (session) {
         return (
-            <>
-                Signed in as {session.user.email || session.user.name } <br />
-                <button onClick={() => signOut()}>Sign out</button>
-            </>
+            <div className={styles.container}>
+                <div>
+                    <Image src="/movieside.png" alt="logo" width="650" height="850"></Image>
+                </div>
+                <div>
+                    Signed in as {session.user.email || session.user.name } <br />
+                    <button onClick={() => signOut()}>Sign out</button>
+                </div>
+            </div>
         );
     }
     return (
-        <>
-            Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
-        </>
+        <div className={styles.container}>
+            <div>
+                <Image src="/movieside.png" alt="logo" width="650" height="850"></Image>
+            </div>
+            <div>
+                Not signed in <br />
+                <button onClick={() => signIn()}>Sign in</button>
+            </div>
+        </div>
     );
 }
