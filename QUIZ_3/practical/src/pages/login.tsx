@@ -13,7 +13,7 @@ export default function Login() {
                 </div>
                 <div>
                     Signed in as {session.user.email || session.user.name } <br />
-                    <button onClick={() => signOut()}>Sign out</button>
+                    <button className={styles.buttonstyle} onClick={() => signOut()}>Sign out</button>
                 </div>
             </div>
         );
@@ -25,7 +25,7 @@ export default function Login() {
             </div>
             <div>
                 Not signed in <br />
-                <button onClick={() => signIn()}>Sign in</button>
+                <button className={styles.buttonstyle} onClick={() => signIn()}>Sign in</button>
             </div>
         </div>
     );

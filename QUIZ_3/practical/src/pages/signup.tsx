@@ -46,13 +46,15 @@ export default function SignIn () {
                     <div className={styles.title}>
                         <h1>SIGNUP</h1>
                     </div>
-                    <div>
-                        <input type='text' placeholder='USER NAME' value={username} onChange={handleUsernameChange} className={styles.input} />
+                    <div className={styles.inputfield}>
+                        <div>
+                            <input type='text' placeholder='USER NAME' value={username} onChange={handleUsernameChange} className={styles.input} />
+                        </div>
+                        <div>
+                            <input type='password' placeholder='PASSWORD' value={password} onChange={handlePasswordChange} className={styles.input}/>
+                        </div>
+                        <button className={styles.buttonstyle} onClick={registerUser}>SIGNUP</button>
                     </div>
-                    <div>
-                        <input type='password' placeholder='PASSWORD' value={password} onChange={handlePasswordChange} className={styles.input}/>
-                    </div>
-                    <button onClick={registerUser}>SIGNUP</button>
                 </div>
             </div>
         </div>

@@ -1,8 +1,9 @@
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { getToken } from 'next-auth/jwt';
-import styles from '@/styles/Signup.module.sass';
+// import styles from '@/styles/Signup.module.sass';
 import React, { useState } from 'react';
 import { instance } from '@/resources/axiosInstance';
+import styles from '@/styles/Movieupload.module.sass'
 
 
 export default function MovieUpload() {
@@ -86,26 +87,30 @@ export default function MovieUpload() {
     return(
         <div>
             <div>
-                <h1>MOVIE UPLOAD</h1>
-                <div>
-                    <input type='text' placeholder='MOVIE/SHOW NAME' value={movieName} onChange={handleMovieNameChange} className={styles.input} />
+                <div className={styles.title}>
+                    <h1>MOVIE UPLOAD</h1>
                 </div>
-                <div>
-                    <input type='text' placeholder='DESCRIPTION' value={description} onChange={handleDescriptionChange} className={styles.input}/>
+                <div className={styles.inputfield}>
+                    <div>
+                        <input type='text' placeholder='MOVIE/SHOW NAME' value={movieName} onChange={handleMovieNameChange} className={styles.input} />
+                    </div>
+                    <div>
+                        <input type='text' placeholder='DESCRIPTION' value={description} onChange={handleDescriptionChange} className={styles.input}/>
+                    </div>
+                    <div>
+                        <input type='text' placeholder='CASTS' value={casts} onChange={handleCastsChange} className={styles.input}/>
+                    </div>
+                    <div>
+                        <input type='text' placeholder='RATING' value={rating} onChange={handleRatingChange} className={styles.input}/>
+                    </div>
+                    <div>
+                        <input type='text' placeholder='CATEGORY' value={category} onChange={handleCategoryChange} className={styles.input}/>
+                    </div>
+                    <div>
+                        <input type="file" name="file" placeholder="" onChange={handleImageChange}/>
+                    </div>
+                    <button className={styles.buttonstyle} onClick={handleSubmit}>SIGNUP</button>
                 </div>
-                <div>
-                    <input type='text' placeholder='CASTS' value={casts} onChange={handleCastsChange} className={styles.input}/>
-                </div>
-                <div>
-                    <input type='text' placeholder='RATING' value={rating} onChange={handleRatingChange} className={styles.input}/>
-                </div>
-                <div>
-                    <input type='text' placeholder='CATEGORY' value={category} onChange={handleCategoryChange} className={styles.input}/>
-                </div>
-                <div>
-                    <input type="file" name="file" placeholder="" onChange={handleImageChange}/>
-                </div>
-                <button onClick={handleSubmit}>SIGNUP</button>
             </div>
         </div>
     )
