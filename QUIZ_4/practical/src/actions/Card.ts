@@ -19,7 +19,7 @@ export async function createCard(card: Card, user: User) {
 
     await Database.setup(process.env.MONGODB_URI)
 
-    const userDoc = new UserModel<User>(user)
+    const cardDoc = new CardModel<Card>(card)
 
-    return userDoc.save();
+    return cardDoc.save();
 }
