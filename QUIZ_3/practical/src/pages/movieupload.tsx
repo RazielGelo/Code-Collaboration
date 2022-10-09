@@ -1,5 +1,3 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
-import { getToken } from 'next-auth/jwt';
 // import styles from '@/styles/Signup.module.sass';
 import React, { useState } from 'react';
 import { instance } from '@/resources/axiosInstance';
@@ -52,24 +50,30 @@ export default function MovieUpload() {
         console.log(value);
 
         const form = new FormData();
-        form.append('images', value);
+        // form.append('images', value);
         const setting = {
             method: 'POST',
             url: 'file',
+            headers: { "Content-Type": "multipart/form-data" },
             data: form
         };
+
+        // const form = new FormData();
+        form.append("images", value);
+
 
         try {
             const {data} = await instance.request(setting);
             setMovieImage(data.data.filename)
         } catch(error) {
+            console.log("Huge Error")
             console.log(error)
         }
     }
 
     async function handleSubmit() {
         const movie = {
-            movieName,
+            name: movieName,
             description,
             casts,
             rating,

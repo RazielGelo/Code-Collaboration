@@ -1,0 +1,8 @@
+References:
+
+https://www.youtube.com/watch?v=ppmNwFyVRTQ
+https://nextjs.org/docs/basic-features/layouts
+https://www.cluemediator.com/password-and-confirm-password-validation-in-react#da
+https://next-auth.js.org/configuration/pages
+https://stackoverflow.com/questions/70487236/redirect-to-another-page-based-on-form-input-in-next-js#:~:text=To%20handle%20redirections%20in%20Next,the%20onSubmit%20of%20the%20form.
+https://github.com/s3v3n-up/mvp/blob/Minh/tasks/makingschema/src/lib/resources/database.ts

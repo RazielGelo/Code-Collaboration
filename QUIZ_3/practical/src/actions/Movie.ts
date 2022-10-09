@@ -30,6 +30,6 @@ export async function createMovie(movie: Movie) {
     }
 
     await Database.setUpClient(process.env.MONGODB_URI);
-    const movieDocument = new UserModel<Movie>(movie);
+    const movieDocument = new MovieModel<Movie>(movie);
     return movieDocument.save()
 } 

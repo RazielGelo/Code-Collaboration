@@ -1,0 +1,14 @@
+QUIZ DATE: 02-10-2022
+TEAM MEMBERS: SANGIL EMIL JAN [000451738]
+GIT LINK: https://github.com/emilsangil/Quizzes/tree/main/QUIZ_4
+VIDEO LINK: 
+ANSWER DOCUMENT: N/A
+ADDITIONAL INFORMATION: 
+
+.env file should contain the following:
+
+MONGODB_URI=mongodb://127.0.0.1:27017
+CLOUDINARY_CLOUD_NAME=dv0gboppr
+CLOUDINARY_CLOUD_API_KEY=746949746384693
+CLOUDINARY_CLOUD_API_SECRET=3nhujQmvurtURwkchxCvRoJKFrw
+CLOUDINARY_CDN_URI=https://res.cloudinary.com/dn8yyuacq/image/upload
