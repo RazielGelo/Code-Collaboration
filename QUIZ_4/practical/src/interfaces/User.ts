@@ -5,5 +5,5 @@ export default interface User {
     id?: string | ObjectId;
     email: string;
     password: string;
-    cards: Card[];
+    cards?: Card[];
 }

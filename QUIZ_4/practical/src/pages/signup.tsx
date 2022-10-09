@@ -51,7 +51,6 @@ export default function Signup() {
   }
 
   async function handleSubmit() {
-    console.log('Before')
     try {
       const { email, confirmEmail, password, confirmPassword } = input;
       if (email !== confirmEmail || password !== confirmPassword) {
@@ -60,7 +59,6 @@ export default function Signup() {
         };
       }
 
-      console.log('Hello')
       console.log(email, confirmEmail, password, confirmPassword);
 
       const body = {
