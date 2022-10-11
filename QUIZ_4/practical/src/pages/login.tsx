@@ -9,7 +9,8 @@ import Footer from '@/components/Footer';
 import { getProviders, getSession, signIn, signOut } from 'next-auth/react';
 
 export async function getServerSideProps(context) {
-    const session = await getSession(context);
+  const session = await getSession(context);
+  console.log(session)
     if (session) {
       return {
         redirect: {
@@ -48,7 +49,6 @@ export default function Signin({providers}) {
                     <button className={styles.fixposition1} type='submit'>
                         <Image src='/signupbutton.png' width='187px' height='105.97px' alt='Submit'/>
                     </button>
-                    {/* <input type='image'  src='/signupbutton.png' width='187px' height='105.97px'/> */}
                 </form>
             </div>
         )

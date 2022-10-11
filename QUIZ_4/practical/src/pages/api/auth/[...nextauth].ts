@@ -40,38 +40,26 @@ export const authOptions: NextAuthOptions = {
                     }
                     
 
-                    // lowercase the username for query
-                    // const lowercasedEmail = email.toLowerCase();
-
-                    // 2) wait for the db connection
                     await Database.setup(process.env.MONGODB_URI);
-                    // 3) get the database
-                    //const database = Database.mongooseClient.connection.db;
+
 
                     const user = await UserModel.findOne({ email })
-                    console.log(user)
-                    // // 4) access the user collection
-                    // const userCollection = database.collection('users');
-                    // // 5) check if a user exists with that username
-                    // const user = await userCollection.findOne(
-                    //     {
-                    //         lowercasedEmail
-                    //     }
-                    // );
+
 
                     if (!user) {
                         throw new Error('no user exists in our system');
                     }
 
-                    // 6) compare passwords!
-                    // note: user.password is encrypted so cannot do an === compare
+
                     // const isValid = await compare(password, user.password);
                     // if (!isValid) {
                     //     throw new Error('unable to log in');
                     // }
 
+                    // console.log(isValid)
+
                     console.log('user', JSON.stringify(user));
-                    // 7) return valid user information (for session or token)
+
                     return {
                         id: user._id,
                         name: email,
@@ -85,17 +73,12 @@ export const authOptions: NextAuthOptions = {
     },
     callbacks: {
         async jwt({ token, user, account }) {
-            // console.log('JWT: token', JSON.stringify(token));
-            // console.log('JWT: user', JSON.stringify(user));
-            // console.log('JWT: account', JSON.stringify(account));
             if (user) {
                 token.user = user;
             }
             return token;
         },
         async session({ session, token, user }) {
-            // console.log('SESSSION: token', JSON.stringify(token));
-            // console.log('SESSSION: user', JSON.stringify(user));
             if (token && token.user) {
                 session.user = token.user;
             }

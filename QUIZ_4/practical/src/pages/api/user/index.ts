@@ -32,11 +32,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         }
 
-        const hashedPasword = await hash(password,10)
+        // const hashedPasword = await hash(password,10)
 
         const user : User = {
             email,
-            password: hashedPasword,
+            password,
             cards
         }
 
