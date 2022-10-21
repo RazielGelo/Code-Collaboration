@@ -1,0 +1,15 @@
+References:
+
+https://www.youtube.com/watch?v=ppmNwFyVRTQ
+https://nextjs.org/docs/basic-features/layouts
+https://www.cluemediator.com/password-and-confirm-password-validation-in-react#da
+https://next-auth.js.org/configuration/pages
+https://stackoverflow.com/questions/70487236/redirect-to-another-page-based-on-form-input-in-next-js#:~:text=To%20handle%20redirections%20in%20Next,the%20onSubmit%20of%20the%20form.
+https://github.com/s3v3n-up/mvp/blob/Minh/tasks/makingschema/src/lib/resources/database.ts
+https://bobbyhadz.com/blog/react-property-children-does-not-exist-on-type#:~:text=The%20React.,ReactNode%20.
+https://stackoverflow.com/questions/70788615/next-js-change-div-color-of-header-depending-on-active-pgae
+https://codepen.io/miraviolet/pen/ZobWEg?fbclid=IwAR2UJq5AQkb5bf8ap-aMoxeEZ-vT7zvKZ1kmdGPXRqEdLh7u6VJuRMUJQoc
+https://nextjs.org/docs/api-reference/next/router
+https://css-tricks.com/gradient-borders-in-css/
+https://github.com/s3v3n-up/mvp/tree/Minh/tasks/create-delete-update-match-and-find-user-by-name
+https://github.com/s3v3n-up/mvp/tree/minh-emil/tasks/image-upload
