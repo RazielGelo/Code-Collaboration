@@ -3,7 +3,7 @@ import Database from "@/resources/database";
 // Imports user interface
 import User from "@/interfaces/User";
 // Imports user Schema/Model
-import { Model as UserModel } from "@/resources/database/models/User";
+import { Model as UserModel } from "@/resources/database/models/user";
 
 /**
  * @description This function creates a user in the database

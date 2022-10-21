@@ -20,4 +20,4 @@ const minionSchema = new Schema<Minion>(
     }
 )
 
-export const Model = mongoose.models.User as mongoose.Model<Minion> || model<Minion>('minion', minionSchema);
+export const Model = mongoose.models.minion as mongoose.Model<Minion> || model<Minion>('minion', minionSchema);

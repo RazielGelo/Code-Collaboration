@@ -2,7 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import Database from "@/resources/database";
-import {Model as UserModel} from "@/resources/database/models/User";
+import {Model as UserModel} from "@/resources/database/models/user";
 import { compare } from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
@@ -65,7 +65,7 @@ export const authOptions: NextAuthOptions = {
     ],
     // Custom page for login
     pages: {
-        signIn: '/login'
+        signIn: "/login"
     },
     callbacks: {
         // Returns the token

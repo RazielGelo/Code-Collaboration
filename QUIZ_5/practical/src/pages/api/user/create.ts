@@ -1,7 +1,7 @@
 import { createUser } from "@/actions/User";
 import User from "@/interfaces/User";
 import { NextApiRequest, NextApiResponse } from "next";
-import { Model as UserModel } from "@/resources/database/models/User";
+import { Model as UserModel } from "@/resources/database/models/user";
 import { hash } from "bcrypt";
 import Database from "@/resources/database";
 
