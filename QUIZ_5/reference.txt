@@ -12,4 +12,6 @@ https://codepen.io/miraviolet/pen/ZobWEg?fbclid=IwAR2UJq5AQkb5bf8ap-aMoxeEZ-vT7z
 https://nextjs.org/docs/api-reference/next/router
 https://css-tricks.com/gradient-borders-in-css/
 https://github.com/s3v3n-up/mvp/tree/Minh/tasks/create-delete-update-match-and-find-user-by-name
+https://codeburst.io/image-upload-with-cloudinary-part-2-next-react-node-js-198108f672e5
 https://github.com/s3v3n-up/mvp/tree/minh-emil/tasks/image-upload
+https://axios-http.com/docs/req_config
