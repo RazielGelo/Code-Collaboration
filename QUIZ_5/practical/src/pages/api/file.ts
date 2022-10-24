@@ -90,7 +90,7 @@ handler.use(
                 {
                     status: code,
                     data: {
-                        message
+                        error
                     }
                 }
             );

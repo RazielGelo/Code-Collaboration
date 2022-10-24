@@ -4,20 +4,35 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { instance } from "@/resources/axiosInstance";
 
+interface Data {
+  minionName: string,
+  minionSkills: string,
+  minionPersonality: string,
+  minionEmail: string,
+  minionPhone: string,
+  minionDescription: string,
+  minionImage: File | null
+}
+
+function getInitialData() {
+  return {
+    minionName: "",
+    minionSkills: "",
+    minionPersonality: "",
+    minionEmail: "",
+    minionPhone: "",
+    minionDescription: "",
+    minionImage: null
+  }
+}
 
 export default function Post() {
-    const inputRef = useRef(null)
+    const inputRef = useRef<HTMLInputElement>(null)
 
-    const [input, setInput] = useState({
-        minionName: "",
-        minionSkills: "",
-        minionPersonality: "",
-        minionEmail: "",
-        minionPhone: "",
-        minionDescription: "",
-        minionImage: ""
-      });
-      const router = useRouter();
+    const [input, setInput] = useState<Data>(
+        getInitialData());
+
+    const router = useRouter();
     
       function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
@@ -29,13 +44,13 @@ export default function Post() {
       }
 
       function handleClick() {
-        inputRef?.current?.click()
+        inputRef.current?.click()
       }
 
       async function handleImageChange(event: React.ChangeEvent<HTMLInputElement>){
           try {
-            const file = event.target.files[0];
-            console.log("File: ", file.name);
+            const file = event.target.files!.item(0)!;
+            console.log("File: ", file);
             const form = new FormData();
             form.append("files", file);
             const img = {
@@ -45,9 +60,14 @@ export default function Post() {
             };
             console.log(img)
             console.log("before data")
-            const { data } = await instance.request(img);
-            console.log("Data", data)
-            setInput(data.data.filename);
+            // const { data } = await instance.request(img);
+            
+            
+            setInput((prev) => ({
+              ...prev,
+              minionImage: event.target.files!.item(0)!
+            }));
+            // setInput(data.data.filename);
         } catch (error: any) {
             console.log("Error uploading", error);
         }
@@ -64,7 +84,11 @@ export default function Post() {
         //   }
 
         //   console.log("Image: ", minionImage);
-    
+          const form = new FormData();
+          form.append("files", minionImage!);
+
+          const { data: {data:{url:url} } } = await instance.post("/file", form)
+
           const body = {
             name: minionName,
             skills: minionSkills,
@@ -72,8 +96,10 @@ export default function Post() {
             email: minionEmail,
             phone: minionPhone,
             description: minionDescription,
-            image: minionImage
+            image: url
           };
+
+          console.log(url)
 
           const { data } = await instance.post("minion/create", body);
           console.log(data)
@@ -94,11 +120,20 @@ export default function Post() {
                     <input type="email" name="minionEmail" value={input.minionEmail} placeholder="email" onChange={handleInputChange}/>
                     <input type="text" name="minionPhone" value={input.minionPhone} placeholder="phone" onChange={handleInputChange}/>
                     <input type="text" name="minionDescription" value={input.minionDescription} placeholder="description" style={{height: "271px"}} onChange={handleInputChange}/>
-                    <div className={styles.buttonNone}>
-                        <input type="file" name="minionImage" value={input.minionImage} accept="image" ref={inputRef} onChange={handleImageChange} style={{display: "none"}} />
-                        <button className={styles.noborder} onClick={handleClick}>
+                    <div className={styles.buttonNone} onClick={handleClick}>
+                        <input type="file" name="minionImage" accept="image" ref={inputRef} onChange={handleImageChange} style={{display: "none"}} />
+                        {input.minionImage ? <div style={{position: "relative", width: "100%", height: "100%"}}>
+                          <Image 
+                            src={URL.createObjectURL(input.minionImage)}
+                            layout="fill"
+                            objectFit="contain"
+                            objectPosition="center"
+                            alt="Image"
+                            />
+                        </div> :
+                        <button className={styles.noborder} >
                             <Image src="/camera.png" width="100px" height="75px" alt="logo" />
-                        </button>
+                        </button> }
                     </div>
                     <button className={styles.button} onClick={handleSubmit}>post</button>
                     <Image src="/botimg.png" width="789px" height="351px" alt="logo" />
