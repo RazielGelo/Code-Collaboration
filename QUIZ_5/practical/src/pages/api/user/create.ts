@@ -18,12 +18,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             
             // Simple Validation for email and password
             // email and pass is required and must be minimum of 8 characters
-            if (!email || email.length < 8 || email.trim() !== email || !password || password.length < 8 || password.trim() !== password) {
-                throw {
-                    code: 400,
-                    message: 'invalid input'
-                };
-            }
+            // if (!email || email.length < 8 || email.trim() !== email || !password || password.length < 8 || password.trim() !== password) {
+            //     throw {
+            //         code: 400,
+            //         message: 'invalid input'
+            //     };
+            // }
             // Sets up the database
             await Database.setup();
             // Checks and stores if the email already exist in the database

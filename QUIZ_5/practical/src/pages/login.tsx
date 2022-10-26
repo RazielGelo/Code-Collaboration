@@ -1,10 +1,15 @@
 import { useSession, signIn, signOut, getProviders, getSession } from "next-auth/react";
 import Image from "next/image";
 import styles from "@/styles/Login.module.sass";
+import { getToken } from "next-auth/jwt";
 
 export async function getServerSideProps(context: any) {
     const session = await getSession(context);
-    console.log(session)
+    const token = await getToken({
+      req: context.req
+    })
+    console.log("token",token)
+    console.log("session", session)
       if (session) {
         return {
           redirect: {
